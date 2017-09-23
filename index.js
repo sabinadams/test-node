@@ -5,20 +5,24 @@ const express = require('express'),
     authorization = require('./middlewares/authorization'),
     constants = require('./config/CONSTANTS'),
     authService = require('./services/auth-service'),
-    Sequelize = require("sequelize"),
-    config = require('./config/CONSTANTS'),
     db = require('./models');
 
 
 // Setting up application scope variables
 app.locals.statusCodes = constants.status_responses;
 app.locals.env = process.env.NODE_ENV || "development";
-
 app.locals._authService = new authService(db);
 
 // Parsing request/response data
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
+
+//CORS
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 // Application-level middleware
 app.use(authorization);
