@@ -4,28 +4,27 @@ const express = require('express'),
     router = require('./controllers/index'),
     authorization = require('./middlewares/authorization'),
     constants = require('./config/CONSTANTS'),
-    testService = require('./services/test-service');
+    authService = require('./services/auth-service'),
+    Sequelize = require("sequelize"),
+    config = require('./config/CONSTANTS'),
+    db = require('./models');
 
 
 // Setting up application scope variables
 app.locals.statusCodes = constants.status_responses;
-app.locals.testService = new testService();
+app.locals.env = process.env.NODE_ENV || "development";
+
+app.locals._authService = new authService(db);
 
 // Parsing request/response data
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
-app.use('/views', express.static(__dirname + '/views'));
-// // Application-level middleware
-// app.use(authorization);
+// Application-level middleware
+app.use(authorization);
 
 // Route Initialization
 app.use(router);
-
-app.get('/', (req, res) => {
-    // res.send('hello world');
-    res.sendFile(`${__dirname}/views/client.html`);
-});
 
 // Specifies which port to run the server on.
 app.listen(6969, () => {

@@ -3,6 +3,6 @@ const express = require('express'),
     router = express.Router();
 
 // Gathers all the route controller files and defines their usage
-router.use('/tests', require('./tests-controller'));
+router.use('/auth', require('./auth-controller'));
 
 module.exports = router;

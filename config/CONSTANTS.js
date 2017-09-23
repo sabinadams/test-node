@@ -7,5 +7,13 @@ module.exports = {
         error: 500,
         not_implemented: 501,
         unknown: 520
-    }
+    },
+    db: {
+        host: 'direct.gamr.co',
+        dev_host: 'direct.gamr.co',
+        schema: 'marksite',
+        user: 'root',
+        password: '798140S@b1n@d@mz'
+            // Maybe add dev_password for individual use
+    },
 }
