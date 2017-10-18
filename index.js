@@ -5,13 +5,15 @@ const express = require('express'),
     authorization = require('./middlewares/authorization'),
     constants = require('./config/CONSTANTS'),
     authService = require('./services/auth-service'),
-    db = require('./models');
+    markerService = require('./services/marker-service');
+db = require('./models');
 
 
 // Setting up application scope variables
 app.locals.statusCodes = constants.status_responses;
 app.locals.env = process.env.NODE_ENV || "development";
 app.locals._authService = new authService(db);
+app.locals._markerService = new markerService(db);
 
 // Parsing request/response data
 app.use(parser.json());

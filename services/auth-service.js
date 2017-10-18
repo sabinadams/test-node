@@ -15,7 +15,8 @@ module.exports = class AuthService {
     }
 
     validateTokenSession(req, token, cb) {
-        this.db.sessions.find({ where: { token: token }, include: { association: 'user', all: true } }).then(res => {
+        // I don't think this should be doing "all"
+        this.db.sessions.find({ where: { token: token }, include: { association: 'user' } }).then(res => {
             cb(res ? { isLoggedIn: true, user: res.toJSON().user } : { isLoggedIn: false, user: [] });
         });
     }
@@ -101,8 +102,6 @@ module.exports = class AuthService {
                     message: 'Incorrect password'
                 })
             }
-
-
         });
     }
 }

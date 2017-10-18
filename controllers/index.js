@@ -4,5 +4,5 @@ const express = require('express'),
 
 // Gathers all the route controller files and defines their usage
 router.use('/auth', require('./auth-controller'));
-
+router.use('/markers', require('./marker-controller'));
 module.exports = router;

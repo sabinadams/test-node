@@ -2,12 +2,15 @@ module.exports = (sequelize, DataTypes) => {
     const Marker = sequelize.define("markers", {
         ID: {
             type: DataTypes.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
-        xloc: DataTypes.INTEGER,
-        yloc: DataTypes.INTEGER,
+        xloc: DataTypes.FLOAT,
+        yloc: DataTypes.FLOAT,
         user_ID: DataTypes.INTEGER,
-        memo: DataTypes.STRING
+        memo: DataTypes.STRING,
+        img: DataTypes.STRING,
+        date: DataTypes.DATE
     }, {
         timestamps: false,
         freezeTableName: true
