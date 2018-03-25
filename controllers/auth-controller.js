@@ -31,4 +31,35 @@ router.post('/update', (req, res) => {
     });
 })
 
+router.post('/register', (req, res) => {
+    req.app.locals._authService.register(req.body, resp => {
+        res.send({
+            status: resp.success ? req.app.locals.statusCodes.success : req.app.locals.statusCodes.unauthorized,
+            valid: resp.success ? true : false,
+            message: resp.message,
+            user: resp.user
+        });
+    });
+});
+
+router.post('/initiatepassreset', (req, res) => {
+    req.app.locals._authService.forgotPasswordEmail(req.body.email, response => {
+        res.send({
+            status: response.success ? req.app.locals.statusCodes.success : req.app.locals.statusCodes.unauthorized,
+            valid: response.success ? true : false,
+            message: response.message
+        });
+    });
+});
+
+router.post('/resetpass', (req, res) => {
+    req.app.locals._authService.forgotPasswordChangePass(req.body.code, req.body.data, response => {
+        res.send({
+            status: response.success ? req.app.locals.statusCodes.success : req.app.locals.statusCodes.unauthorized,
+            valid: response.success ? true : false,
+            message: response.message,
+            timetaken: response.timetaken
+        })
+    })
+})
 module.exports = router;

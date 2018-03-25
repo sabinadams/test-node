@@ -13,7 +13,7 @@ module.exports = {
         dev_host: 'localhost',
         schema: 'marksite',
         user: 'root',
-        password: '798140S@b1n@d@mz'
+        password: '798140Sa'
             // Maybe add dev_password for individual use
     },
 }

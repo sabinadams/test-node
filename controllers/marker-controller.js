@@ -31,4 +31,14 @@ router.post('/delete', (req, res) => {
         })
     });
 })
+
+router.post('/send', (req, res) => {
+    req.app.locals._markerService.sendToUser(req.user.ID, req.body.tag, req.body.marker, resp => {
+        res.send({
+            status: resp.success ? req.app.locals.statusCodes.success : req.app.locals.statusCodes.failure,
+            message: resp.message,
+            valid: resp.success
+        });
+    });
+})
 module.exports = router;

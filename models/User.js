@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
         email: DataTypes.STRING,
         password: DataTypes.STRING,
         salt: DataTypes.STRING,
-        active: DataTypes.INTEGER
+        active: DataTypes.INTEGER,
+        changePassToken: DataTypes.STRING,
+        changePassTimestamp: DataTypes.DATE
     }, {
         timestamps: false,
         freezeTableName: true

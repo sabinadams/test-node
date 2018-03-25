@@ -1,7 +1,10 @@
 // Unprotected routes
 let whitelist = [
     '/auth/login',
-    '/auth/validatesession'
+    '/auth/validatesession',
+    '/auth/register',
+    '/auth/initiatepassreset',
+    '/auth/resetpass'
 ];
 
 module.exports = (req, res, next) => {
@@ -24,7 +27,6 @@ module.exports = (req, res, next) => {
     }
     // Tries to validate a token
     try {
-
         // Check for a session using that token
         return req.app.locals._authService.validateTokenSession(req, token, (session) => {
             // Checks to see if  user is active
