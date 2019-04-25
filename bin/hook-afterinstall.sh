@@ -1,5 +1,5 @@
 #!/bin/bash
  
-cd /home/ubuntu/testdeployment/ 
+cd /home/ubuntu/testServer/ 
 npm install
 npm start
