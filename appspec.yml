@@ -3,3 +3,7 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/testServer
+hooks:
+  AfterInstall:
+    - location: /bin/hook-afterinstall.sh
+      runas: root
