@@ -6,7 +6,7 @@ files:
 hooks:
   AfterInstall:
     - location: /bin/hook-setup.sh
-      runas: ubuntu
+      runas: sudo
   ApplicationStart:
     - location: /bin/hook-afterinstall.sh
-      runas: ubuntu
+      runas: sudo
