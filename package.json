@@ -15,7 +15,8 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "grunt": "grunt"
+        "grunt": "grunt",
+        "start": "node index"
     },
     "author": "",
     "license": "ISC"
