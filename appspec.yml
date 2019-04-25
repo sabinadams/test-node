@@ -4,9 +4,9 @@ files:
   - source: /
     destination: /home/ubuntu/testServer
 hooks:
-Install:
+  Install:
     - location: /bin/hook-setup.sh
       runas: ubuntu
-  AfterInstall:
+  ApplicationStart:
     - location: /bin/hook-afterinstall.sh
       runas: ubuntu
