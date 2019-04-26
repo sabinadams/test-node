@@ -10,6 +10,3 @@ hooks:
   AfterInstall:
     - location: /bin/hook-setup.sh
       runas: root
-  ApplicationStart:
-    - location: /bin/hook-afterinstall.sh
-      runas: root
