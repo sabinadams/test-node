@@ -6,7 +6,7 @@ files:
 hooks:
   BeforeInstall:
     - location: /bin/hook-beforeInstall.sh
-      runas: ubuntu
+      runas: sudo
   AfterInstall:
     - location: /bin/hook-afterInstall.sh
       runas: ubuntu
