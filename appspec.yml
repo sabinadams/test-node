@@ -8,5 +8,5 @@ hooks:
     - location: /bin/hook-beforeInstall.sh
       runas: root
   AfterInstall:
-    - location: /bin/hook-setup.sh
+    - location: /bin/hook-afterInstall.sh
       runas: root
