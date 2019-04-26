@@ -32,6 +32,6 @@ app.use(authorization);
 app.use(router);
 
 // Specifies which port to run the server on.
-app.listen(6969, () => {
+app.listen(3001, () => {
     console.log('Example app listening on port 6969!');
 });
