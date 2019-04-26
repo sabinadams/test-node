@@ -1,4 +1,4 @@
 #!/bin/bash
  
 cd /home/ubuntu/testServer/ 
-pm2 start index.js
+pm2 start index.js -f
