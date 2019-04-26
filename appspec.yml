@@ -10,3 +10,6 @@ hooks:
   AfterInstall:
     - location: /bin/hook-afterInstall.sh
       runas: ubuntu
+  ApplicationStart:
+    - location: /bin/hook-applicationStart.sh
+      runas: ubuntu
