@@ -1,2 +1,2 @@
 #!/bin/sh
-pm2 start /home/ubuntu/testServer/index.js -f
+pm2 start /home/ubuntu/testServer/index.js
